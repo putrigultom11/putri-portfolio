@@ -4,11 +4,11 @@ import { Badge } from "@/components/ui/badge";
 import { 
   Code2, 
   Database, 
-  Docker, 
+  Layers, 
   File, 
   FileCode, 
-  FolderGit, 
-  React 
+  GitBranch, 
+  Code 
 } from "lucide-react";
 
 const Skills = () => {
@@ -30,12 +30,12 @@ const Skills = () => {
     },
     {
       name: "DevOps",
-      icon: <Docker className="h-6 w-6" />,
+      icon: <Layers className="h-6 w-6" />,
       skills: ["Docker", "Kubernetes", "AWS", "CI/CD", "GitHub Actions", "Jenkins"]
     },
     {
       name: "Tools & Others",
-      icon: <File className="h-6 w-6" />,
+      icon: <GitBranch className="h-6 w-6" />,
       skills: ["Git", "Webpack", "Vite", "Jest", "Testing Library", "Cypress", "Storybook"]
     }
   ];
