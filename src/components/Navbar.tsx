@@ -1,7 +1,8 @@
 
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Download } from "lucide-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,6 +20,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
+    { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
     { name: "Experience", href: "#experience" },
     { name: "Contact", href: "#contact" },
@@ -26,38 +28,85 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  const navVariants = {
+    hidden: { y: -100, opacity: 0 },
+    visible: { 
+      y: 0, 
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 20
+      }
+    }
+  };
+
+  const listVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: -20, opacity: 0 },
+    visible: { y: 0, opacity: 1 }
+  };
+
   return (
-    <header
+    <motion.header
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled
           ? "bg-gray-900/95 backdrop-blur-sm py-4 shadow-md"
           : "bg-transparent py-6"
       }`}
+      variants={navVariants}
+      initial="hidden"
+      animate="visible"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <a href="#home" className="font-bold text-2xl text-white">
+          <motion.a 
+            href="#home" 
+            className="font-bold text-2xl text-white"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 400 }}
+          >
             <span className="text-portfolio-purple">Dev</span>Portfolio
-          </a>
+          </motion.a>
 
           {/* Desktop navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <motion.nav 
+            className="hidden md:flex space-x-8"
+            variants={listVariants}
+            initial="hidden"
+            animate="visible"
+          >
             {navLinks.map((link) => (
-              <a 
+              <motion.a 
                 key={link.name} 
                 href={link.href} 
-                className="nav-link font-medium"
+                className="nav-link font-medium relative overflow-hidden group"
+                variants={itemVariants}
+                whileHover={{ color: "#ffffff" }}
               >
                 {link.name}
-              </a>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portfolio-purple origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+              </motion.a>
             ))}
-          </nav>
+          </motion.nav>
 
-          <div className="hidden md:block">
+          <motion.div 
+            className="hidden md:block"
+            variants={itemVariants}
+          >
             <Button className="btn-primary">
-              Resume
+              Resume <Download className="ml-2 h-4 w-4" />
             </Button>
-          </div>
+          </motion.div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
@@ -66,10 +115,11 @@ const Navbar = () => {
               size="icon"
               onClick={toggleMenu}
               aria-label="Toggle menu"
+              className="text-white hover:bg-gray-800"
             >
               {isMenuOpen ? 
-                <X className="h-6 w-6 text-white" /> : 
-                <Menu className="h-6 w-6 text-white" />
+                <X className="h-6 w-6" /> : 
+                <Menu className="h-6 w-6" />
               }
             </Button>
           </div>
@@ -77,28 +127,44 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-gray-900">
-          <div className="px-2 pt-2 pb-4 space-y-1 sm:px-3">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="block px-3 py-2 rounded-md text-base font-medium nav-link"
-                onClick={toggleMenu}
-              >
-                {link.name}
-              </a>
-            ))}
-            <div className="pt-2">
-              <Button className="btn-primary w-full">
-                Resume
-              </Button>
-            </div>
-          </div>
-        </div>
-      )}
-    </header>
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div 
+            className="md:hidden bg-gray-900 border-t border-gray-800"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.div 
+              className="px-4 pt-2 pb-4 space-y-1"
+              variants={listVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {navLinks.map((link) => (
+                <motion.a
+                  key={link.name}
+                  href={link.href}
+                  className="block px-3 py-2 text-base font-medium nav-link hover:bg-gray-800 rounded-md"
+                  onClick={toggleMenu}
+                  variants={itemVariants}
+                  whileHover={{ x: 5 }}
+                  transition={{ type: "spring", stiffness: 400 }}
+                >
+                  {link.name}
+                </motion.a>
+              ))}
+              <div className="pt-2">
+                <Button className="btn-primary w-full">
+                  Resume <Download className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 };
 

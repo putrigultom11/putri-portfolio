@@ -38,10 +38,23 @@
 
   * {
     @apply border-border;
+    scroll-behavior: smooth;
   }
 
   body {
     @apply bg-gray-950 text-gray-50 font-sans;
+  }
+  
+  /* Hide elements until they're visible */
+  .animate-fade-in {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .animate-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -77,6 +90,10 @@
   
   .technology-pill {
     @apply px-3 py-1 rounded-full text-xs font-medium bg-gray-800 text-gray-300;
+  }
+  
+  .input-animated {
+    @apply relative border-0 border-b-2 border-gray-700 bg-transparent px-0 py-2 transition-all duration-300 focus:border-portfolio-purple focus:outline-none;
   }
 }
 
@@ -115,4 +132,31 @@
 /* Gradient background for hero */
 .hero-gradient {
   background: linear-gradient(90deg, rgba(26, 31, 44, 1) 0%, rgba(45, 62, 80, 0.9) 100%);
+}
+
+/* Animated background */
+.animated-bg {
+  background: linear-gradient(-45deg, #8B5CF6, #6366F1, #3B82F6, #A855F7);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* For glass morphism effects */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
 }
