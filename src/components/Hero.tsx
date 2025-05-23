@@ -2,6 +2,7 @@
 import { ArrowRight, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { TypeAnimation } from 'react-type-animation';
 
 const Hero = () => {
   return (
@@ -21,7 +22,21 @@ const Hero = () => {
               Hi, my name is
             </p>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-portfolio-dark">
-              John Doe.
+              <TypeAnimation
+                sequence={[
+                  'John Doe.',
+                  2000,
+                  'a Developer.',
+                  1000,
+                  'a Problem Solver.',
+                  1000,
+                  'John Doe.',
+                  3000
+                ]}
+                wrapper="span"
+                cursor={true}
+                repeat={Infinity}
+              />
             </h1>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-portfolio-gray mb-6">
               Software Engineer.
