@@ -17,16 +17,16 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-portfolio-purple font-medium mb-4">
+            <p className="text-portfolio-blue font-medium mb-4">
               Hi, my name is
             </p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-portfolio-dark">
               John Doe.
             </h1>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-400 mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-portfolio-gray mb-6">
               Software Engineer.
             </h2>
-            <p className="text-gray-300 text-lg md:text-xl mb-8 max-w-2xl">
+            <p className="text-portfolio-dark text-lg md:text-xl mb-8 max-w-2xl">
               I'm a software engineer specializing in building exceptional digital experiences. 
               Currently, I'm focused on creating accessible, user-centered products
               that solve real-world problems.
@@ -52,14 +52,14 @@ const Hero = () => {
             transition={{ duration: 0.5 }}
             className="relative"
           >
-            <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-portfolio-purple">
+            <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-portfolio-blue shadow-soft">
               <img 
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1374&auto=format&fit=crop" 
                 alt="John Doe" 
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="absolute inset-0 rounded-full bg-portfolio-purple/20 blur-xl -z-10 scale-90"></div>
+            <div className="absolute inset-0 rounded-full bg-portfolio-blue/10 blur-xl -z-10 scale-90"></div>
           </motion.div>
         </div>
       </div>

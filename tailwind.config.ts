@@ -64,12 +64,14 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				portfolio: {
-					'blue': '#2d3e50',
-					'blue-light': '#3498db',
-					'purple': '#8B5CF6',
-					'purple-light': '#E5DEFF',
-					'dark': '#1a1f2c',
-					'gray': '#8e9196',
+					'blue': '#007BFF',
+					'blue-light': '#4da3ff',
+					'blue-dark': '#0056b3',
+					'purple': '#6366F1',
+					'purple-light': '#E5EDFF',
+					'dark': '#333333',
+					'gray': '#6B7280',
+					'light': '#F9FAFB',
 				}
 			},
 			borderRadius: {
@@ -103,6 +105,17 @@ export default {
 			},
 			fontFamily: {
 				'sans': ['Inter', 'sans-serif']
+			},
+			boxShadow: {
+				'soft': '0 10px 15px -3px rgba(0, 123, 255, 0.1), 0 4px 6px -2px rgba(0, 123, 255, 0.05)',
+				'card': '0 4px 6px rgba(0, 123, 255, 0.04), 0 1px 3px rgba(0, 123, 255, 0.08)',
+				'button': '0 4px 6px rgba(0, 123, 255, 0.15)',
+				'hover': '0 10px 25px rgba(0, 123, 255, 0.18)'
+			},
+			backgroundImage: {
+				'gradient-blue': 'linear-gradient(135deg, #007BFF 0%, #4da3ff 100%)',
+				'gradient-light': 'linear-gradient(135deg, #F9FAFB 0%, #E5EDFF 100%)',
+				'gradient-card': 'linear-gradient(to right bottom, #ffffff, #f5f9ff)',
 			}
 		}
 	},

@@ -68,10 +68,10 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="bg-gray-900 py-20">
+    <section id="skills" className="bg-portfolio-light py-20">
       <div className="section-container">
         <h2 className="section-title">My Skills</h2>
-        <p className="text-gray-300 max-w-3xl mb-12">
+        <p className="text-portfolio-dark max-w-3xl mb-12">
           I've worked with a wide range of technologies throughout my career.
           Here are some of the key skills and tools I've mastered.
         </p>
@@ -87,13 +87,14 @@ const Skills = () => {
             <motion.div 
               key={category.name}
               variants={itemVariants}
-              className="bg-gray-950 p-6 rounded-lg border border-gray-800 hover:border-portfolio-purple/50 transition-colors"
+              className="bg-white p-6 rounded-lg shadow-card hover:shadow-hover border border-gray-100 transition-all duration-300"
+              whileHover={{ y: -5 }}
             >
               <div className="flex items-center gap-4 mb-5">
-                <div className="bg-portfolio-purple/20 p-3 rounded-lg">
+                <div className="bg-portfolio-blue/10 p-3 rounded-lg text-portfolio-blue">
                   {category.icon}
                 </div>
-                <h3 className="text-xl font-bold">{category.name}</h3>
+                <h3 className="text-xl font-bold text-portfolio-dark">{category.name}</h3>
               </div>
 
               <motion.div 
@@ -105,7 +106,7 @@ const Skills = () => {
               >
                 {category.skills.map((skill) => (
                   <motion.div key={skill} variants={badgeVariants}>
-                    <Badge className="bg-gray-800 hover:bg-gray-700 text-white py-1.5 px-2.5">
+                    <Badge className="bg-portfolio-purple-light hover:bg-portfolio-purple-light/80 text-portfolio-blue py-1.5 px-2.5">
                       {skill}
                     </Badge>
                   </motion.div>

@@ -60,7 +60,7 @@ const Navbar = () => {
     <motion.header
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-gray-900/95 backdrop-blur-sm py-4 shadow-md"
+          ? "bg-white/95 backdrop-blur-sm py-4 shadow-soft"
           : "bg-transparent py-6"
       }`}
       variants={navVariants}
@@ -71,11 +71,11 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           <motion.a 
             href="#home" 
-            className="font-bold text-2xl text-white"
+            className="font-bold text-2xl text-portfolio-dark"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400 }}
           >
-            <span className="text-portfolio-purple">Dev</span>Portfolio
+            <span className="text-portfolio-blue">Dev</span>Portfolio
           </motion.a>
 
           {/* Desktop navigation */}
@@ -91,10 +91,10 @@ const Navbar = () => {
                 href={link.href} 
                 className="nav-link font-medium relative overflow-hidden group"
                 variants={itemVariants}
-                whileHover={{ color: "#ffffff" }}
+                whileHover={{ color: "#007BFF" }}
               >
                 {link.name}
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portfolio-purple origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portfolio-blue origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
               </motion.a>
             ))}
           </motion.nav>
@@ -115,7 +115,7 @@ const Navbar = () => {
               size="icon"
               onClick={toggleMenu}
               aria-label="Toggle menu"
-              className="text-white hover:bg-gray-800"
+              className="text-portfolio-dark hover:bg-gray-100"
             >
               {isMenuOpen ? 
                 <X className="h-6 w-6" /> : 
@@ -130,7 +130,7 @@ const Navbar = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
-            className="md:hidden bg-gray-900 border-t border-gray-800"
+            className="md:hidden bg-white border-t border-gray-100"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
@@ -146,7 +146,7 @@ const Navbar = () => {
                 <motion.a
                   key={link.name}
                   href={link.href}
-                  className="block px-3 py-2 text-base font-medium nav-link hover:bg-gray-800 rounded-md"
+                  className="block px-3 py-2 text-base font-medium nav-link hover:bg-gray-50 rounded-md"
                   onClick={toggleMenu}
                   variants={itemVariants}
                   whileHover={{ x: 5 }}

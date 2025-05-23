@@ -24,7 +24,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-950 py-10 border-t border-gray-800">
+    <footer className="bg-white py-10 border-t border-gray-100 shadow-soft">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <motion.div 
@@ -33,10 +33,10 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <a href="#home" className="font-bold text-xl text-white">
-              <span className="text-portfolio-purple">Dev</span>Portfolio
+            <a href="#home" className="font-bold text-xl text-portfolio-dark">
+              <span className="text-portfolio-blue">Dev</span>Portfolio
             </a>
-            <p className="text-gray-400 mt-2 text-sm">
+            <p className="text-portfolio-gray mt-2 text-sm">
               Crafting exceptional digital experiences
             </p>
           </motion.div>
@@ -48,7 +48,7 @@ const Footer = () => {
                 href={link.url} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors p-2"
+                className="text-portfolio-gray hover:text-portfolio-blue transition-colors p-2"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -63,16 +63,16 @@ const Footer = () => {
         </div>
         
         <motion.div 
-          className="mt-8 pt-8 border-t border-gray-800 text-center"
+          className="mt-8 pt-8 border-t border-gray-100 text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <p className="text-gray-400 text-sm">
+          <p className="text-portfolio-gray text-sm">
             &copy; {currentYear} John Doe. All rights reserved.
           </p>
-          <p className="text-gray-500 text-xs mt-2">
+          <p className="text-portfolio-gray/70 text-xs mt-2">
             Designed & Built with React, Tailwind CSS & ❤️
           </p>
         </motion.div>
