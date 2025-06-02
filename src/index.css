@@ -1,0 +1,172 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 250 250 250;
+    --foreground: 31 41 55;
+
+    --card: 255 255 255;
+    --card-foreground: 31 41 55;
+
+    --popover: 255 255 255;
+    --popover-foreground: 31 41 55;
+
+    --primary: 59 130 246;
+    --primary-foreground: 255 255 255;
+
+    --secondary: 243 244 246;
+    --secondary-foreground: 55 65 81;
+
+    --muted: 243 244 246;
+    --muted-foreground: 107 114 128;
+
+    --accent: 243 244 246;
+    --accent-foreground: 55 65 81;
+
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+
+    --border: 229 231 235;
+    --input: 229 231 235;
+    --ring: 59 130 246;
+  }
+
+  * {
+    @apply border-border;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-gradient-blue text-foreground font-sans;
+  }
+  
+  .animate-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .animate-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-6 text-portfolio-dark relative inline-block;
+  }
+  
+  .section-title::after {
+    content: '';
+    @apply absolute -bottom-2 left-0 w-16 h-1 bg-gradient-button rounded-full;
+  }
+  
+  .nav-link {
+    @apply text-portfolio-dark hover:text-portfolio-blue transition-all duration-300 hover:scale-105;
+  }
+  
+  .btn-primary {
+    @apply px-8 py-4 bg-gradient-button text-white rounded-3xl hover:shadow-hover shadow-button transition-all duration-300 inline-flex items-center gap-2 hover:scale-105 active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply px-8 py-4 border-2 border-portfolio-blue text-portfolio-blue rounded-3xl hover:bg-portfolio-blue hover:text-white transition-all duration-300 inline-flex items-center gap-2 hover:scale-105 active:scale-95;
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 hover:scale-105 hover:shadow-hover hover:rotate-1;
+  }
+  
+  .technology-pill {
+    @apply px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-portfolio-blue-100 to-portfolio-purple-100 text-portfolio-blue border border-white/50 shadow-soft hover:scale-110 transition-all duration-300 cursor-pointer;
+  }
+  
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-xl border border-white/50 shadow-card rounded-3xl;
+  }
+
+  .neomorphism-card {
+    @apply bg-white rounded-3xl shadow-neomorphism hover:shadow-hover transition-all duration-500;
+  }
+
+  .gen-z-card {
+    @apply bg-gradient-card border border-white/50 rounded-3xl shadow-card hover:shadow-hover hover:scale-105 hover:-rotate-1 transition-all duration-500;
+  }
+}
+
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+.animate-delay-500 { animation-delay: 0.5s; }
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: linear-gradient(to bottom, #DBEAFE, #F3E8FF);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #60A5FA, #A78BFA);
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #3B82F6, #A855F7);
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #DBEAFE 0%, #FFFFFF 30%, #F3E8FF 100%);
+}
+
+.animated-bg {
+  background: linear-gradient(-45deg, #DBEAFE, #FFFFFF, #F3E8FF, #A78BFA);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.floating-shapes {
+  position: relative;
+  overflow: hidden;
+}
+
+.floating-shapes::before,
+.floating-shapes::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #DBEAFE, #F3E8FF);
+  opacity: 0.6;
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-shapes::before {
+  width: 200px;
+  height: 200px;
+  top: 10%;
+  right: 10%;
+  animation-delay: -2s;
+}
+
+.floating-shapes::after {
+  width: 150px;
+  height: 150px;
+  bottom: 10%;
+  left: 10%;
+  animation-delay: -4s;
+}
